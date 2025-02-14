@@ -14,6 +14,7 @@
             F04(karakterek);
             F05(karakterek);
             F06(karakterek);
+            F07(karakterek);
         }
 
         static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -82,6 +83,36 @@
                 {
                     Console.WriteLine(item.ToString());
                 }
+            }
+        }
+
+        static void F07(List<Karakter> karakterek)
+        {
+            string fajlnev = "karakterek.csv";
+            Iras(karakterek, fajlnev);
+            Olvasas(karakterek, fajlnev);
+        }
+
+        static void Iras( List<Karakter> karakterek,string fajlnev)
+        {
+            StreamWriter sw = new(fajlnev);
+            sw.WriteLine("Név;Szint;Életerő;Erő");
+            foreach (var item in karakterek)
+            {
+                sw.WriteLine($"{item.Name};{item.Szint};{item.Eletero};{item.Ero}");
+            };
+            sw.Close();
+            Console.WriteLine("Írás kész.");
+        }
+
+        static void Olvasas(List<Karakter> karakterek, string fajlnev)
+        {
+            StreamReader sr = new(fajlnev);
+            sr.ReadLine();
+            while (!sr.EndOfStream)
+            {
+                string sor = sr.ReadLine();
+                Console.WriteLine(sor);
             }
         }
     }
