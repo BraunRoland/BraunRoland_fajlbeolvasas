@@ -6,11 +6,12 @@
         {
             List<Karakter> karakterek = [];
             Beolvasas("karakterek.txt", karakterek);
-            //foreach (var item in karakterek)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
+            foreach (var item in karakterek)
+            {
+                Console.WriteLine(item.ToString());
+            }
             F03(karakterek);
+            F04(karakterek);
         }
 
         static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -35,6 +36,28 @@
             };
             Console.WriteLine("3. feladat: szint átlaga");
             Console.WriteLine($"- {atlag/karakterek.Count}");
+        }
+
+        static void F04(List<Karakter> karakterek)
+        {
+            Console.WriteLine("4. feladat: ");
+            Karakter csere;
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                for (int j = i + 1; j < karakterek.Count; j++)
+                {
+                    if (karakterek[i].Ero > karakterek[j].Ero)
+                    {
+                        csere = karakterek[j];
+                        karakterek[j] = karakterek[i];
+                        karakterek[i] = csere;
+                    }
+                }
+            }
+            foreach (var item in karakterek)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }
