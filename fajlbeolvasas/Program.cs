@@ -15,6 +15,7 @@
             F05(karakterek);
             F06(karakterek);
             F07(karakterek);
+            F08(karakterek);
         }
 
         static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -113,6 +114,40 @@
             {
                 string sor = sr.ReadLine();
                 Console.WriteLine(sor);
+            }
+        }
+
+        static void F08(List<Karakter> karakterek)
+        {
+            List<Karakter> uj = [];
+            List<Karakter> regi = karakterek;
+            foreach (var item in regi)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                int index = 0;
+                int max = 0;
+                for (int j = 0; j < regi.Count-1; j++)
+                {
+                    int keresett = regi[j].Szint + regi[j].Ero;
+                    if (keresett > max)
+                    {
+                        max = keresett;
+                        index = j;
+                    }
+                    Console.WriteLine(regi[j]);
+                }
+                uj[i] = regi[index];
+                Console.WriteLine($"\n\n{uj.ToString()}");
+                regi.RemoveAt(index);
+            }
+            Console.WriteLine("8.Feladat: Top 3 karakter:");
+            foreach (var item in uj)
+            {
+                Console.WriteLine(item.ToString());
             }
         }
     }
