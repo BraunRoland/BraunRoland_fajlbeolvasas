@@ -26,6 +26,18 @@ namespace fajlbeolvasas
         public int Eletero { get => eletero; set => eletero = value; }
         public int Ero { get => ero; set => ero = value; }
 
+        public string ErossebE(int szam)
+        {
+            if (ero > szam)
+            {
+                return "Erősebb";
+            }
+            else
+            {
+                return "Nem erősebb";
+            }
+        }
+
         public override string? ToString()
         {
             return $"{name} - {szint} / {eletero} / {ero}";
