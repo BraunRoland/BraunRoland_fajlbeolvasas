@@ -38,6 +38,18 @@ namespace fajlbeolvasas
             }
         }
 
+        public bool KarakterStats(int szam)
+        {
+            if (szint > szam)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override string? ToString()
         {
             return $"{name} - {szint} / {eletero} / {ero}";

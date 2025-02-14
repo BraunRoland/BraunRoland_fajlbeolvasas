@@ -13,6 +13,7 @@
             F03(karakterek);
             F04(karakterek);
             F05(karakterek);
+            F06(karakterek);
         }
 
         static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -63,11 +64,24 @@
 
         static void F05(List<Karakter> karakterek)
         {
-            Console.Write("Adj meg egy Számot: ");
+            Console.Write("5. Feladat:\nAdj meg egy Számot: ");
             int szam = Convert.ToInt32(Console.ReadLine());
             foreach (var item in karakterek)
             {
                 Console.WriteLine($"{item.Name} - {item.ErossebE(szam)}");
+            }
+        }
+
+        static void F06(List<Karakter> karakterek)
+        {
+            Console.Write("6. Feladat:\nAdj meg egy Számot: ");
+            int szam = Convert.ToInt32(Console.ReadLine());
+            foreach (var item in karakterek)
+            {
+                if (item.KarakterStats(szam) == true)
+                {
+                    Console.WriteLine(item.ToString());
+                }
             }
         }
     }
