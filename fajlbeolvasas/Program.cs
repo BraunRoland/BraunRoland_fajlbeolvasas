@@ -150,5 +150,29 @@
                 Console.WriteLine(item.ToString());
             }
         }
+
+        static void F09(List<Karakter> karakterek)
+        {
+            Console.WriteLine("9. feladat: ");
+            Karakter csere;
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                for (int j = i + 1; j < karakterek.Count; j++)
+                {
+                    int k1 = karakterek[i].Ero + karakterek[i].Szint;
+                    int k2 = karakterek[j].Ero + karakterek[j].Szint;
+                    if (k1 > k2)
+                    {
+                        csere = karakterek[j];
+                        karakterek[j] = karakterek[i];
+                        karakterek[i] = csere;
+                    }
+                }
+            }
+            foreach(var item in karakterek)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
     }
 }
