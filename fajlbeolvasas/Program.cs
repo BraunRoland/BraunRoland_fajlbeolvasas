@@ -15,7 +15,9 @@
             F05(karakterek);
             F06(karakterek);
             F07(karakterek);
-            F08(karakterek);
+            //F08(karakterek);
+            F09(karakterek);
+            F10(karakterek);
         }
 
         static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -173,6 +175,33 @@
             {
                 Console.WriteLine(item.ToString());
             }
+        }
+
+        static void F10(List<Karakter> karakterek)
+        {
+            Random rnd = new Random();
+            int index = 0;
+            for ( int i = 0; i < karakterek.Count; ++i )
+            {
+                while (karakterek[i] == karakterek[index])
+                {
+                    index = rnd.Next(karakterek.Count);
+                }
+                Console.Write($"{karakterek[i].Name} - {karakterek[index].Name}: ");
+                if (karakterek[i].Ero * karakterek[i].Szint > karakterek[index].Ero * karakterek[index].Szint)
+                {
+                    Console.WriteLine($"{karakterek[i].Name} nyert.");
+                }
+                else if (karakterek[i].Ero * karakterek[i].Szint == karakterek[index].Ero * karakterek[index].Szint)
+                {
+                    Console.WriteLine("Nem lett nyertes.");
+                }
+                else
+                {
+                    Console.WriteLine($"{karakterek[index].Name} nyert.");
+                }
+            }
+
         }
     }
 }
